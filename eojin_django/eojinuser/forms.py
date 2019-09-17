@@ -20,26 +20,7 @@ class RegisterForm(forms.Form):
         error_messages={
             'required': '비밀번호를 입력해주세요.'
         },
-        widget=forms.PasswordInput, label='비밀번호 확인'
-    )
-
-    def clean(self):
-        cleaned_data = super().clean()
-        email = cleaned_data.get('email')
-        password = cleaned_data.get('password')
-        re_password = cleaned_data.get('re_password')
-
-        if password and re_password:
-            if password != re_password:
-                self.add_error('password', '비밀번호가 서로 다릅니다')
-                self.add_error('re_password', '비밀번호가 서로 다릅니다')
-            else:
-                eojinuser = Eojinuser(
-                    email=email,
-                    password=make_password(password)
-                )
-                eojinuser.save()
-
+        widget=forms.PasswordInput, label='비
 class LoginForm(forms.Form):
     objects = models.Manager()
     email = forms.EmailField(
