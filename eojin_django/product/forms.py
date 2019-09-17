@@ -18,7 +18,7 @@ class RegisterForm(forms.Form):
             'required': '상품설명을 입력해주세요.'
         }, label='상품설명'
     )
-    stock = froms.IntegerField(
+    stock = forms.IntegerField(
          error_messages={
             'required': '재고를 입력해주세요.'
         }, label='재고'
