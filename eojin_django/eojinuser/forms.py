@@ -20,7 +20,9 @@ class RegisterForm(forms.Form):
         error_messages={
             'required': '비밀번호를 입력해주세요.'
         },
-        widget=forms.PasswordInput, label='비
+        widget=forms.PasswordInput, label='비밀번호'
+    )
+
 class LoginForm(forms.Form):
     objects = models.Manager()
     email = forms.EmailField(
